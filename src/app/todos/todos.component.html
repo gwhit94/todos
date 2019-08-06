@@ -1,0 +1,23 @@
+
+<div>
+    <input type="text" placeholder="username" [(ngModel)]="username">
+    <input type="text" placeholder="title" [(ngModel)]="title">
+    <button (click)='createTodo()'>Add Todo</button>
+</div>
+<div>
+    <h2> Todos </h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Username</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let todo of todoList">
+            <th>{{todo.id}}</th>
+            <th>{{todo.title}}</th>
+            <th><a [routerLink]="['/user/' + todo.username]">{{todo.username}}</a></th>
+            <!-- <th><button (click)="removeTodo()">Delete</button></th> -->
+        </tr>
+    </table>
+</div>
