@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodosComponent } from './todos/todos.component';
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import { UserGuard } from './user.guard';
 
 
 const routes: Routes = [
-  { path: 'todos', component: TodosComponent},
-  { path: 'user/:username', component: UserComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'todos', component: TodosComponent, canActivate: [UserGuard]},
+  { path: 'user/:username', component: UserComponent, canActivate: [UserGuard]},
   { path: '**', redirectTo: '/todos'}
 ];
 
