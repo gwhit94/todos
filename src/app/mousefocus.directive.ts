@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appMousefocus]'
+  selector: '[mouseFocus]'
 })
 export class MousefocusDirective {
 
