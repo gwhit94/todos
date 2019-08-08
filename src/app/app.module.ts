@@ -10,6 +10,7 @@ import { SortPipe } from './sort.pipe';
 import { TodolistComponent } from './todolist/todolist.component';
 import { MousefocusDirective } from './mousefocus.directive';
 import { MissedbirthdayDirective } from './missedbirthday.directive';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MissedbirthdayDirective } from './missedbirthday.directive';
     SortPipe,
     TodolistComponent,
     MousefocusDirective,
-    MissedbirthdayDirective
+    MissedbirthdayDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
