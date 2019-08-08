@@ -1,0 +1,26 @@
+<div>
+    <input placeholder="Search String" [(ngModel)]="search">
+    <select [(ngModel)]="sort">
+        <option value="id">Id</option>
+        <option value="title">Title</option>
+        <option value="username">Username</option>
+    </select>
+</div>
+<h2> Todos </h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Username</th>
+            <th>Completed</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let todo of todoList | filter:search | sort:sort" [class.completed]="todo.completed">
+            <td>{{todo.id}}</td>
+            <td>{{todo.title}}</td>
+            <td><a [routerLink]="['/user/' + todo.username]">{{todo.username}}</a></td>
+            <td class="center-text"><input type="checkbox" (click)="markTodo(todo.id)" [(ngModel)]="todo.completed"></td>
+            <td><button (click)="removeTodo()">Delete</button></td>
+        </tr>
+    </table>
+    

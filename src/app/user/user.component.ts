@@ -20,11 +20,15 @@ export class UserComponent implements OnInit {
    }
    createTodo(){
     this.todosService.addTodo(this.username, this.title);
-    this.todoList = this.todosService.getTodosByUsername(this.username);
+    this.todoList = [...this.todosService.getTodosByUsername(this.username)];
    }
    removeTodo(id){
     this.todosService.removeTodo(id);
-    this.todoList = this.todosService.getTodosByUsername(this.username);
+    this.todoList = [...this.todosService.getTodosByUsername(this.username)];
+   }
+   markTodo(id){
+    this.todosService.markTodo(id);
+    this.todoList = [...this.todosService.getTodosByUsername(this.username)];
    }
   //  getTodosByUsername(){
   //    this.todosService.getTodosByUsername(this.u);

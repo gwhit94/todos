@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class TodosService {
   private todos: Object[] = [];
-  'username': string;
-  'title': string;
-  'id': number;
+  username: string;
+  title: string;
+  id: number;
   'u': string;
+  't': string;
   private nextId: number = 1;
 
   // u = username parameter / t = title parameter
@@ -17,6 +18,7 @@ export class TodosService {
       username: u,
       title: t,
       id: this.nextId,
+      completed: false
     }
     this.nextId++;
     this.todos.push(newTodo);
@@ -24,6 +26,10 @@ export class TodosService {
   removeTodo(id){
     let idx = this.todos.findIndex(todo => todo['id'] === id);
     this.todos.splice(idx, 1);
+  }
+  markTodo(id){
+    let idx = this.todos.findIndex(todo => todo['id'] === id);
+    this.todos[idx]['completed'] = !this.todos[idx]['completed'];
   }
   getTodosByUsername(u){
     return this.todos.filter(todo => todo['username'] === u);
